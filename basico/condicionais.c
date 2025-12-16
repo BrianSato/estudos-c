@@ -1,3 +1,5 @@
+// Exemplo de uso de estruturas condicionais em C
+
 #include <stdio.h>
 
 int main() {
