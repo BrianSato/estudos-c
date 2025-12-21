@@ -1,3 +1,5 @@
+// Exemplo basico de leitura e escrita em arquivos em C
+
 #include <stdio.h>
 
 int main() {
