@@ -27,6 +27,19 @@ int main() {
 
     printf("Aluno salvo no arquivo com sucesso.\n");
 
+    // Leitura de UM registro do arquivo
+    arquivo = fopen("alunos.txt", "r");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo para leitura.\n");
+        return 1;
+    }
+
+    fscanf(arquivo, "%49s %d", aluno.nome, &aluno.idade);
+    fclose(arquivo);
+
+    printf("\nPrimeiro aluno cadastrado:\n");
+    printf("Nome: %s | Idade: %d\n", aluno.nome, aluno.idade);
+
     return 0;
 }
 
