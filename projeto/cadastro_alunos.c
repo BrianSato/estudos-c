@@ -13,6 +13,28 @@ void menu() {
     printf("Escolha uma opcao: ");
 }
 
+void cadastrarAluno() {
+    struct Aluno aluno;
+    FILE *arquivo;
+
+    printf("Digite o nome do aluno: ");
+    scanf("%49s", aluno.nome);
+
+    printf("Digite a idade do aluno: ");
+    scanf("%d", &aluno.idade);
+
+    arquivo = fopen("alunos.txt", "a");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo.\n");
+        return;
+    }
+
+    fprintf(arquivo, "%s %d\n", aluno.nome, aluno.idade);
+    fclose(arquivo);
+
+    printf("Aluno cadastrado com sucesso!\n");
+}
+
 int main() {
     int opcao;
 
@@ -22,7 +44,7 @@ int main() {
 
         switch (opcao) {
             case 1:
-                printf("Cadastrar aluno (em breve)\n");
+                cadastrarAluno();
                 break;
             case 2:
                 printf("Listar alunos (em breve)\n");
