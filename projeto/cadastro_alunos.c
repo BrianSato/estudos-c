@@ -8,6 +8,7 @@ struct Aluno {
 
 void menu();
 void cadastrarAluno();
+void salvarAluno(struct Aluno aluno, const char *nomeArquivo);
 void listarAlunos();
 void removerAluno();
 void atualizarAluno();
@@ -63,8 +64,13 @@ void cadastrarAluno() {
 
     printf("Digite a idade do aluno: ");
     scanf("%d", &aluno.idade);
+    salvarAluno(aluno, "alunos.txt");
 
-    arquivo = fopen("alunos.txt", "a");
+    printf("Aluno cadastrado com sucesso!\n");
+}
+
+void salvarAluno(struct Aluno aluno, const char *nomeArquivo) {
+    FILE *arquivo = fopen(nomeArquivo, "a");
     if (arquivo == NULL) {
         printf("Erro ao abrir o arquivo.\n");
         return;
@@ -72,8 +78,6 @@ void cadastrarAluno() {
 
     fprintf(arquivo, "%s %d\n", aluno.nome, aluno.idade);
     fclose(arquivo);
-
-    printf("Aluno cadastrado com sucesso!\n");
 }
 
 void listarAlunos() {
