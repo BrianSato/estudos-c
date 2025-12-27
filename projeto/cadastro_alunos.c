@@ -11,6 +11,7 @@ void menu() {
     printf("1 - Cadastrar aluno\n");
     printf("2 - Listar alunos\n");
     printf("3 - Remover aluno\n");
+    printf("4 - Atualizar Aluno\n");
     printf("0 - Sair\n");
     printf("Escolha uma opcao: ");
 }
@@ -99,6 +100,57 @@ void removerAluno() {
     }
 }
 
+void atualizarAluno() {
+    struct Aluno aluno;
+    FILE *arquivo, *temp;
+    char nomeAtualizar[50];
+    int encontrado = 0;
+
+    printf("Digite o nome do aluno a atualizar: ");
+    scanf("%49s", nomeAtualizar);
+
+    arquivo = fopen("alunos.txt", "r");
+    if (arquivo == NULL) {
+        printf("Nenhum aluno cadastrado.\n");
+        return;
+    }
+
+    temp = fopen("temp.txt", "w");
+    if (temp == NULL) {
+        printf("Erro ao criar arquivo temporario.\n");
+        fclose(arquivo);
+        return;
+    }
+
+    while (fscanf(arquivo, "%49s %d", aluno.nome, &aluno.idade) != EOF) {
+        if (strcmp(aluno.nome, nomeAtualizar) == 0) {
+            printf("Digite o novo nome: ");
+            scanf("%49s", aluno.nome);
+
+            printf("Digite a nova idade: ");
+            scanf("%d", &aluno.idade);
+
+            fprintf(temp, "%s %d\n", aluno.nome, aluno.idade);
+            encontrado = 1;
+        } else {
+            fprintf(temp, "%s %d\n", aluno.nome, aluno.idade);
+        }
+    }
+
+    fclose(arquivo);
+    fclose(temp);
+
+    remove("alunos.txt");
+    rename("temp.txt", "alunos.txt");
+
+    if (encontrado) {
+        printf("Aluno atualizado com sucesso.\n");
+    } else {
+        printf("Aluno nao encontrado.\n");
+    }
+}
+
+
 
 int main() {
     int opcao;
@@ -117,6 +169,9 @@ int main() {
             case 3:
                 removerAluno();
                 break;
+            case 4:
+                atualizarAluno();
+                break;
             case 0:
                 printf("Saindo do programa...\n");
                 break;
@@ -128,3 +183,4 @@ int main() {
 
     return 0;
 }
+
