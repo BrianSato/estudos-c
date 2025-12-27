@@ -6,6 +6,44 @@ struct Aluno {
     int idade;
 };
 
+void menu();
+void cadastrarAluno();
+void listarAlunos();
+void removerAluno();
+void atualizarAluno();
+
+int main() {
+    int opcao;
+
+    do {
+        menu();
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+            case 1:
+                cadastrarAluno();
+                break;
+            case 2:
+               listarAlunos();
+                break;
+            case 3:
+                removerAluno();
+                break;
+            case 4:
+                atualizarAluno();
+                break;
+            case 0:
+                printf("Saindo do programa...\n");
+                break;
+            default:
+                printf("Opcao invalida.\n");
+        }
+
+    } while (opcao != 0);
+
+    return 0;
+}
+
 void menu() {
     printf("\n===== MENU =====\n");
     printf("1 - Cadastrar aluno\n");
@@ -150,37 +188,4 @@ void atualizarAluno() {
     }
 }
 
-
-
-int main() {
-    int opcao;
-
-    do {
-        menu();
-        scanf("%d", &opcao);
-
-        switch (opcao) {
-            case 1:
-                cadastrarAluno();
-                break;
-            case 2:
-               listarAlunos();
-                break;
-            case 3:
-                removerAluno();
-                break;
-            case 4:
-                atualizarAluno();
-                break;
-            case 0:
-                printf("Saindo do programa...\n");
-                break;
-            default:
-                printf("Opcao invalida.\n");
-        }
-
-    } while (opcao != 0);
-
-    return 0;
-}
 
