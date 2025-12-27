@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 struct Aluno {
     char nome[50];
@@ -9,6 +10,7 @@ void menu() {
     printf("\n===== MENU =====\n");
     printf("1 - Cadastrar aluno\n");
     printf("2 - Listar alunos\n");
+    printf("3 - Remover aluno\n");
     printf("0 - Sair\n");
     printf("Escolha uma opcao: ");
 }
@@ -54,6 +56,49 @@ void listarAlunos() {
     fclose(arquivo);
 }
 
+void removerAluno() {
+    struct Aluno aluno;
+    FILE *arquivo, *temp;
+    char nomeRemover[50];
+    int encontrado = 0;
+
+    printf("Digite o nome do aluno a remover: ");
+    scanf("%49s", nomeRemover);
+
+    arquivo = fopen("alunos.txt", "r");
+    if (arquivo == NULL) {
+        printf("Nenhum aluno cadastrado.\n");
+        return;
+    }
+
+    temp = fopen("temp.txt", "w");
+    if (temp == NULL) {
+        printf("Erro ao criar arquivo temporario.\n");
+        fclose(arquivo);
+        return;
+    }
+
+    while (fscanf(arquivo, "%49s %d", aluno.nome, &aluno.idade) != EOF) {
+        if (strcmp(aluno.nome, nomeRemover) != 0) {
+            fprintf(temp, "%s %d\n", aluno.nome, aluno.idade);
+        } else {
+            encontrado = 1;
+        }
+    }
+
+    fclose(arquivo);
+    fclose(temp);
+
+    remove("alunos.txt");
+    rename("temp.txt", "alunos.txt");
+
+    if (encontrado) {
+        printf("Aluno removido com sucesso.\n");
+    } else {
+        printf("Aluno nao encontrado.\n");
+    }
+}
+
 
 int main() {
     int opcao;
@@ -68,6 +113,9 @@ int main() {
                 break;
             case 2:
                listarAlunos();
+                break;
+            case 3:
+                removerAluno();
                 break;
             case 0:
                 printf("Saindo do programa...\n");
