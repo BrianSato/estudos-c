@@ -9,7 +9,7 @@ struct Aluno {
 void menu();
 void cadastrarAluno();
 void salvarAluno(struct Aluno aluno, const char *nomeArquivo);
-void listarAlunos();
+void listarAlunos(const char *nomeArquivo);
 void removerAluno();
 void atualizarAluno();
 
@@ -80,7 +80,7 @@ void salvarAluno(struct Aluno aluno, const char *nomeArquivo) {
     fclose(arquivo);
 }
 
-void listarAlunos() {
+void listarAlunos(const char *nomeArquivo) {
     struct Aluno aluno;
     FILE *arquivo;
 
