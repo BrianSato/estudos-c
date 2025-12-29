@@ -8,7 +8,7 @@ struct Aluno {
 
 void menu();
 void cadastrarAluno();
-void salvarAluno(struct Aluno aluno, const char *nomeArquivo);
+void salvarAluno(const struct Aluno *aluno, const char *nomeArquivo);
 void listarAlunos(const char *nomeArquivo);
 void removerAluno();
 void atualizarAluno();
@@ -69,14 +69,14 @@ void cadastrarAluno() {
     printf("Aluno cadastrado com sucesso!\n");
 }
 
-void salvarAluno(struct Aluno aluno, const char *nomeArquivo) {
+void salvarAluno(const struct Aluno *aluno, const char *nomeArquivo) {
     FILE *arquivo = fopen(nomeArquivo, "a");
     if (arquivo == NULL) {
         printf("Erro ao abrir o arquivo.\n");
         return;
     }
 
-    fprintf(arquivo, "%s %d\n", aluno.nome, aluno.idade);
+    fprintf(arquivo, "%s %d\n", aluno->nome, aluno->idade);
     fclose(arquivo);
 }
 
