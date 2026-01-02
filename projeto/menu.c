@@ -9,6 +9,7 @@ void menu() {
 	printf("===== MENU =====\n");
     printf("1 - Cadastrar aluno\n");
     printf("2 - Listar alunos\n");
+	printf("3- Remover aluno:\n");
     printf("0 - Sair\n");
     printf("Escolha uma opcao: ");
     fflush(stdout);
@@ -22,6 +23,9 @@ void menu() {
      case 2:
           listarAlunos();
           break;
+	case 3:
+		removerAluno();
+		break;	
      case 0:
           printf("Saindo do programa...\n");
           break;
