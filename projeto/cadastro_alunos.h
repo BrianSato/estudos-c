@@ -13,6 +13,7 @@ void menu();
 void cadastrarAluno();
 void salvarAluno(struct Aluno aluno);
 void listarAlunos();
+void editarAluno();
 void removerAluno();
 
 #endif
