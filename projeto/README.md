@@ -24,12 +24,6 @@ Cada aluno possui:
 - Idade
 ----------------------------------------------------------------------------------------------
 ## 🗂️ Estrutura do projeto
-├── main.c
-├── aluno.h
-├── aluno.c
-├── menu.c
-├── alunos.txt
-└── README.md
 
 - 'main.c'  
   Controla o fluxo principal do programa.
@@ -39,9 +33,11 @@ Cada aluno possui:
 
 - 'cadastro_aluno.h / funcoes_cadastro.c'  
   Contém a struct 'Aluno' e as funções de cadastro, listagem, edição e remoção.
+----------------------------------------------------------------------------------------------
+## Arquivo de dados
 
-- 'alunos.txt'  
-  Arquivo utilizado para armazenar os dados dos alunos.
+O arquivo `alunos.txt` é criado automaticamente pelo programa no primeiro cadastro de aluno.
+Não é necessário criá-lo manualmente.
 ----------------------------------------------------------------------------------------------
 ## 💾 Formato do arquivo
 
