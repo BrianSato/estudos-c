@@ -20,16 +20,16 @@ void menu() {
       case 1:
           cadastrarAluno();
           break;
-     case 2:
+      case 2:
           listarAlunos();
           break;
-	case 3:
-		removerAluno();
-		break;	
-     case 0:
+	  case 3:
+		  removerAluno();
+		  break;	
+      case 0:
           printf("Saindo do programa...\n");
           break;
-     default:
+      default:
           printf("Opcao invalida.\n");
       }
    }while (opcao != 0);
