@@ -3,15 +3,17 @@
 #include<stdio.h>
 
 //LISTA DE FUNÇÕES UTILIZADAS EM CADASTRO_ALUNOS.C
+
 //CADASTRAR ALUNO
 void cadastrarAluno() {
     struct Aluno aluno;
+
     printf("Digite o nome do aluno:");
     fflush(stdout);
     fgets(aluno.nome,sizeof aluno.nome,stdin);
     aluno.nome[strcspn(aluno.nome,"\n")] = '\0';
 
-    printf("Digite a idade do aluno: ");
+    printf("Digite a idade do aluno:");
     fflush(stdout);
     scanf("%d", &aluno.idade);
     getchar();
@@ -23,10 +25,11 @@ void cadastrarAluno() {
 //SALVAR CADASTRO DO ALUNO EM ARQUIVO
 void salvarAluno(struct Aluno aluno) {
     FILE *arquivo = fopen("alunos.txt", "a");
+
     if (!arquivo) {
         printf("Erro ao abrir arquivo.\n");
         return;
-	}
+    }
     fprintf(arquivo,"%s;%d\n", aluno.nome, aluno.idade);
     fclose(arquivo);
 }
@@ -35,17 +38,78 @@ void salvarAluno(struct Aluno aluno) {
 void listarAlunos() {
 	char linha[200];
     FILE *arquivo = fopen("alunos.txt", "r");
+
     if (!arquivo) {
         printf("Nenhum aluno cadastrado.\n");
         return;
     }
 
-    printf("\n======LISTA DE ALUNOS======\n");
+    printf("======LISTA DE ALUNOS======\n");
     while (fgets(linha,sizeof(linha),arquivo) != NULL) {
         printf("%s", linha);
     }
 
     fclose(arquivo);
+}
+//FUNÇÃO EDITAR ALUNO
+void editarAluno(){
+	FILE* arquivo;
+		FILE* arq_temp;
+		char linha[300];
+		char busca_nome[50];
+		char novo_nome[50];
+		int nova_idade;
+		int encontrado = 0;
+		struct Aluno aluno;
+	//PERGUNTA AO USUÁRIO QUAL O ALUNO A SER BUSCADO
+		printf("Informe o nome do aluno:");
+		fflush(stdout);
+		fgets(busca_nome,sizeof busca_nome ,stdin);
+		busca_nome[strcspn(busca_nome,"\n")] = '\0';
+	//PEDE O NOVO NOME  E IDADE AO USUÁRIO
+		printf("Informe o novo nome:");
+		fflush(stdout);
+		fgets(novo_nome, sizeof novo_nome,stdin);
+		novo_nome[strcspn(novo_nome,"\n")] = '\0';
+
+		printf("Informe a idade:");
+		fflush(stdout);
+		scanf("%d", &nova_idade);
+		getchar();
+	//ABRE O ARQUIVO CONTENDO OS TODOS OS ALUNOS E UM ARQUIVO TEMPORÁRIO
+		arquivo = fopen("alunos.txt", "r");
+		arq_temp = fopen("arq_temp.txt", "a");
+	//VERIFICA SE AMBOS OS ARQUIVOS EXISTEM
+		if(arquivo == NULL || arq_temp == NULL){
+			printf("Arquivo não encontrado");
+			return;
+		}
+		//PERCORRE TODO O ARQUIVO LINHA POR LINHA DO ARQUIVO
+		while(fgets(linha,sizeof linha ,arquivo)!= NULL){
+			sscanf(linha,"%49[^;];%d",aluno.nome,&aluno.idade);//SSCANF SEPARA OS DADOS DA LINHA
+			aluno.nome[strcspn(aluno.nome,"\n")] = '\0';
+			
+		//COMPARA O NOME INFORMADO COM O CAMPO ALUNO.NOME DENTRO DO ARQUIVO
+		if(strcmp(aluno.nome, busca_nome) != 0){
+			fputs(linha,arq_temp);//SALVA O CONTEUDO DE LINHA PARA ARQ_TEMP
+		}else{
+			fprintf(arq_temp, "%s;%d\n",novo_nome,nova_idade);
+			encontrado = 1;
+			}
+		}
+		
+		if(encontrado){
+			printf("Dados editado com sucesso!\n");
+		}else{
+			printf("Nome não encontrado!\n");
+		}
+		
+		fclose(arquivo);
+		fclose(arq_temp);
+	
+		remove("alunos.txt");
+		rename("arq_temp.txt","alunos.txt");
+
 }
 //FUNÇÃO DE REMOVER ALUNO
 void removerAluno(){
@@ -55,11 +119,13 @@ void removerAluno(){
 	char del_nome[50];
 	int encontrado = 0;
 	struct Aluno aluno;
+
 	//PERGUNTA AO USUÁRIO QUAL O ALUNO A SER APAGADO
 	printf("Informe o nome do aluno:");
 	fflush(stdout);
 	fgets(del_nome,sizeof del_nome ,stdin);
 	del_nome[strcspn(del_nome,"\n")] = '\0';
+
 	//ABRE O ARQUIVO CONTENDO OS TODOS OS ALUNOS E UM ARQUIVO TEMPORÁRIO
 	arquivo = fopen("alunos.txt", "r");
 	arq_temp = fopen("arq_temp.txt", "a");
@@ -80,7 +146,7 @@ void removerAluno(){
 	/*
 	COMPARA O NOME INFORMADO COM O CAMPO ALUNO.NOME DENTRO DO ARQUIVO
 	SENDO QUE != 0 SIGNIFICA NÃO IGUAIS, DENTRO DA CONDIÇÃO SE AMBOS OS CAMPOS ALUNO.NOME E DEL_ALUNO
-	FOREM DIFERENTES ELE COPIA A LINHA TODA DENTRO DO ARQ_TEMP QUE SERIA O
+	FOREM DIFERENTES ELE COPIA OS DADOS DE ALUNO.NOME E ALUNO.IDADE DENTRO DO ARQ_TEMP QUE SERIA O
 	ARQUIVO TEMPORÁRIO.
 	*/
 		if(strcmp(aluno.nome, del_nome) != 0){
@@ -115,4 +181,3 @@ void removerAluno(){
 	rename("arq_temp.txt","alunos.txt");
 
 }
-
