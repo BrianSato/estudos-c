@@ -30,9 +30,12 @@ Cada aluno possui:
 
 - 'menu.c' 
   Responsável por exibir o menu e opções ao usuário.
-
-- 'cadastro_aluno.h / funcoes_cadastro.c'  
-  Contém a struct 'Aluno' e as funções de cadastro, listagem, edição e remoção.
+  
+- 'cadastro_aluno.h'
+  Contém a struct 'Aluno' e o protótipo das funções utilizadas
+  
+- / funcoes_cadastro.c'  
+  Contém as funções de cadastro, listagem, edição e remoção.
 ----------------------------------------------------------------------------------------------
 ## Arquivo de dados
 
