@@ -3,17 +3,6 @@
 #include<stdio.h>
 
 //LISTA DE FUNÇÕES UTILIZADAS EM CADASTRO_ALUNOS.C
-
-//MENU PRINCIPAL MOSTRADO NO CONSOLE.
-void menu() {
-    printf("===== MENU =====\n");
-    printf("1 - Cadastrar aluno\n");
-    printf("2 - Listar alunos\n");
-	printf("3 - Remover Aluno\n");
-    printf("0 - Sair\n");
-    printf("Escolha uma opcao: ");
-    fflush(stdout);
-}
 //CADASTRAR ALUNO
 void cadastrarAluno() {
     struct Aluno aluno;
