@@ -37,24 +37,17 @@ Utilizando o **GCC**:
 gcc src/main.c src/comandos.c -o ferramenta
 ```
 ## Execução
-para contar a quantidade de linhas de um arquivo
-
+ - para contar a quantidade de linhas de um arquivo:
 ./ferramenta data/arquivo.txt -l
-
-para contar a quantidade de palavras de um arquivo
-
+ - para contar a quantidade de palavras de um arquivo:
 ./ferramenta data/arquivo.txt -w
-
-para contar a quantidade de caracteres de um arquivo
-
+ - para contar a quantidade de caracteres de um arquivo:
 ./ferramenta data/arquivo.txt -c
 
-##Saida esperada:
-Quantidade de linhas: X
-
-Quantidade de palavras: X
-
-Quantidade de caracteres: X
+## Saida esperada:
+ - Quantidade de linhas: X
+ - Quantidade de palavras: X
+ - Quantidade de caracteres: X
 
 ---
 🧠 Conceitos Utilizados
