@@ -10,17 +10,17 @@ int main(int argc, char *argv[]){
 		printf("Uso: %s <arquivo> \n", argv[0]);
 		return 1;
 	}
-	//VERIFICA SE CONTÉM O COMANDO EQUIVALENTE AO DEMONSTRADO (NO CASO COMANDO -L)
 	if(strcmp(argv[2], "-l") == 0){
-		int resultado = contaLinhas(argv[1]);
-
-		if(resultado == -1){
-			printf("Erro ao abrir o arquivo\n");
-			return 1;
-		}
-		printf("A quantidade de linhas é : %d\n", resultado);
-	}else{
-		printf("Comando desconhecido\n");
+	    executaLinhas(argv[1]);
+	}
+	else if(strcmp(argv[2], "-w") == 0){
+	    executaPalavras(argv[1]);
+	}
+	else if(strcmp(argv[2], "-c") == 0){
+	    executaCaracteres(argv[1]);
+	}
+	else{
+	    printf("Comando desconhecido\n");
 	}
 
     return 0;
