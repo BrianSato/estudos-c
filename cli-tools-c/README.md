@@ -83,6 +83,8 @@ gcc main.c comandos.c executa.c -o cli-tools
 Funcionalidades planejadas para futuras versões:
  - Tratamento mais robusto de erros
  - Suporte a múltiplos comandos simultâneos
+ -  Implementação do comando --help
+ - Criação de Makefile
 ---
 📝 Observação
 Este projeto faz parte do meu processo de aprendizado em limguagem C, com foco em desenvolvimento de 
