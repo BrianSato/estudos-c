@@ -39,18 +39,21 @@ Utilizando o **GCC**:
 gcc main.c comandos.c executa.c -o cli-tools
 ```
 ## Execução
-```bash
+
  - para contar a quantidade de linhas de um arquivo:
-   
+```bash   
 ./cli-tools teste.txt -l
+```
  - para contar a quantidade de palavras de um arquivo:
-   
+ ```bash   
 ./cli-tools teste.txt -w
+```
  - para contar a quantidade de caracteres de um arquivo:
-   
+```bash 
 ./cli-tools teste.txt -c
+```
 - para mostrar todos os valores de um arquivo:
-  
+```bash 
 ./cli-tools teste.txt -a
 ```
 
