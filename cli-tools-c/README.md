@@ -62,7 +62,9 @@ gcc main.c comandos.c executa.c -o cli-tools
  - Quantidade de palavras: X
  - Quantidade de caracteres: X
  - Linha:X
+   
    Palavras:X
+
    Caracteres:X
 
 ---
