@@ -32,3 +32,28 @@ void executaCaracteres(const char *arquivo){
 	printf("A quantidade de caracteres é : %d\n", resultado);
 
 }
+void executaComando(const char *nomeArquivo,const char *comando){
+
+	if(comando == NULL){
+		printf("Nenhum comando informado.");
+		return;
+	}
+
+	if(strcmp(comando, "-l") == 0){
+		executaLinhas(nomeArquivo);
+	}
+	else if(strcmp(comando, "-w") == 0){
+		executaPalavras(nomeArquivo);
+	}
+	else if(strcmp(comando, "-c") == 0){
+		executaCaracteres(nomeArquivo);
+	}
+	else if(strcmp(comando, "-a") == 0){
+		printf("Linhas:%d\n",contaLinhas(nomeArquivo));
+		printf("Palavras:%d\n",contaPalavras(nomeArquivo));
+		printf("Caracteres:%d\n",contaCaracteres(nomeArquivo));
+	}
+	else{
+		printf("Comando desconhecido\n");
+	}
+}
