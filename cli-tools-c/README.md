@@ -12,6 +12,8 @@ Este projeto é uma **ferramenta de linha de comando (CLI)** desenvolvida em **l
 - '-l' → Conta o número de linhas do arquivo
 - '-w' → Conta o número de palavras
 - '-c' → Conta o número de caracteres
+- '-a' → Exibe linhas, palavras e caracteres do arquivo
+
 
 ---
 
@@ -25,7 +27,7 @@ Este projeto é uma **ferramenta de linha de comando (CLI)** desenvolvida em **l
   Contém a implementação da execução das funcionalidades da ferramenta.
 - 'comandos.h'  
   Cabeçalho com as declarações das funções utilizadas no projeto.
-- 'data/arquivo.txt'  
+- 'data/teste.txt'  
   Arquivo de exemplo utilizado para testes.
 ---
 
@@ -34,23 +36,31 @@ Este projeto é uma **ferramenta de linha de comando (CLI)** desenvolvida em **l
 Utilizando o **GCC**:
 
 ```bash
-gcc src/main.c src/comandos.c -o ferramenta
+gcc main.c comandos.c executa.c -o cli-tools
 ```
 ## Execução
+```bash
  - para contar a quantidade de linhas de um arquivo:
    
-./ferramenta data/arquivo.txt -l
+./cli-tools teste.txt -l
  - para contar a quantidade de palavras de um arquivo:
    
-./ferramenta data/arquivo.txt -w
+./cli-tools teste.txt -w
  - para contar a quantidade de caracteres de um arquivo:
    
-./ferramenta data/arquivo.txt -c
+./cli-tools teste.txt -c
+- para mostrar todos os valores de um arquivo:
+  
+./cli-tools teste.txt -a
+```
 
 ## Saida esperada:
  - Quantidade de linhas: X
  - Quantidade de palavras: X
  - Quantidade de caracteres: X
+ - Linha:X
+   Palavras:X
+   Caracteres:X
 
 ---
 🧠 Conceitos Utilizados
