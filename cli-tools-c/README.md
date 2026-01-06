@@ -83,16 +83,16 @@ Caracteres: 845
 
 ---
 
-🧠 Conceitos Utilizados
+## 🧠 Conceitos Utilizados
 
- - Argumentos de linha de comando (argc, argv)
- - Manipulação de arquivos com FILE *
- - Leitura de arquivos com fgets
- - Leitura de caracteres com getc
- - Processamento de texto
- - Comparação de strings com strcmp
- - Separação de responsabilidades entre arquivos .c e .h
- - Uso de Makefile para automatizar a compilação
+- Uso de argumentos de linha de comando (`argc` e `argv`)
+- Comparação de strings com `strcmp`
+- Organização de código em múltiplos arquivos (`.c` e `.h`)
+- Abertura e leitura de arquivos de texto
+- Contagem de linhas, palavras e caracteres
+- Criação de funções para modularizar o código
+- Validação de argumentos para evitar uso incorreto
+- Uso de Makefile para automatizar a compilação
 
 ---
 
