@@ -57,3 +57,29 @@ void executaComando(const char *nomeArquivo,const char *comando){
 		printf("Comando desconhecido\n");
 	}
 }
+void executaHelp() {
+    printf("CLI-TOOLS-C\n");
+    printf("Ferramenta simples para contagem de texto\n\n");
+
+    printf("Uso:\n");
+    printf("  cli-tools <arquivo> <comando>\n\n");
+
+    printf("Comandos disponiveis:\n");
+    printf("  -l            Conta linhas\n");
+    printf("  -w            Conta palavras\n");
+    printf("  -c            Conta caracteres\n");
+    printf("  -a            Mostra todas as contagens\n");
+    printf(" --help    Mostra esta ajuda\n\n");
+
+    printf("Exemplos:\n");
+    printf("  cli-tools teste.txt -l\n");
+    printf("  cli-tools teste.txt -a\n");
+}
+
+void erroUso() {
+    printf("Erro: uso incorreto do programa.\n\n");
+    printf("Use:\n");
+    printf("  cli-tools <arquivo> <comando>\n\n");
+    printf("Para ajuda, use:\n");
+    printf("  cli-tools --help\n");
+}
