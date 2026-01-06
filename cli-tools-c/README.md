@@ -1,93 +1,113 @@
 # Ferramenta de Linha de Comando em C
 
-Este projeto é uma **ferramenta de linha de comando (CLI)** desenvolvida em **linguagem C**, com o objetivo de praticar:
+Este projeto é uma **ferramenta de linha de comando (CLI)** desenvolvida em **linguagem C**, com o objetivo de praticar e consolidar conceitos fundamentais da linguagem, como:
 
-- leitura de arquivos
-- uso de argumentos de linha de comando ('argc' e 'argv')
-- organização de código em múltiplos arquivos ('.c' e '.h')
-- boas práticas básicas de estruturação em C
+- Leitura de arquivos
+- Uso de argumentos de linha de comando (`argc` e `argv`)
+- Organização de código em múltiplos arquivos (`.c` e `.h`)
+- Boas práticas básicas de estruturação em C
+- Criação de programas CLI simples e funcionais
 
-## Funcionalidades
+---
 
-- '-l' → Conta o número de linhas do arquivo
-- '-w' → Conta o número de palavras
-- '-c' → Conta o número de caracteres
-- '-a' → Exibe linhas, palavras e caracteres do arquivo
+## ⚙️ Funcionalidades
 
+A ferramenta recebe um **arquivo de texto** e um **comando**, realizando as seguintes operações:
+
+- `-l` → Conta o número de linhas do arquivo
+- `-w` → Conta o número de palavras
+- `-c` → Conta o número de caracteres
+- `-a` → Exibe linhas, palavras e caracteres do arquivo
+- `--help` → Exibe instruções de uso do programa
 
 ---
 
 ## 📂 Estrutura do Projeto
 
-- 'main.c'  
-  Responsável por interpretar os argumentos passados pelo usuário e chamar as funções adequadas.
-- 'comandos.c'  
-  Contém a implementação das funcionalidades da ferramenta (ex: contagem de linhas).
-- 'executa.c'  
-  Contém a implementação da execução das funcionalidades da ferramenta.
-- 'comandos.h'  
-  Cabeçalho com as declarações das funções utilizadas no projeto.
-- 'data/teste.txt'  
-  Arquivo de exemplo utilizado para testes.
+```text
+CLI-TOOLS-C/
+├── main.c        # Interpreta os argumentos e controla o fluxo do programa
+├── comandos.c    # Implementação das funções de contagem
+├── executa.c     # Funções responsáveis por executar os comandos
+├── comandos.h    # Declarações das funções utilizadas
+├── README.md
+```
+
 ---
 
 ## ⚙️ Compilação
 
-Utilizando o **GCC**:
-
+Usando GCC diretamente:
 ```bash
 gcc main.c comandos.c executa.c -o cli-tools
 ```
-## Execução
+Usando Makefile:
+```bash
+mingw32-make
+```
 
- - para contar a quantidade de linhas de um arquivo:
-```bash   
+---
+
+## ▶️ Execução
+
+Exibir ajuda:
+```bash
+./cli-tools --help
+```
+Contar Linhas:
+```bash
 ./cli-tools teste.txt -l
 ```
- - para contar a quantidade de palavras de um arquivo:
- ```bash   
+Conta Palavras:
+```bash
 ./cli-tools teste.txt -w
 ```
- - para contar a quantidade de caracteres de um arquivo:
-```bash 
+Conta Caracteres:
+```bash
 ./cli-tools teste.txt -c
 ```
-- para mostrar todos os valores de um arquivo:
-```bash 
+Exibir todas as contagens:
+```bash
 ./cli-tools teste.txt -a
 ```
 
-## Saida esperada:
- - Quantidade de linhas: X
- - Quantidade de palavras: X
- - Quantidade de caracteres: X
- - Linha:X
-   
-   Palavras:X
+---
 
-   Caracteres:X
+## 📌 Saída Esperada
+
+Linhas: 10
+
+Palavras: 120
+
+Caracteres: 845
 
 ---
+
 🧠 Conceitos Utilizados
 
  - Argumentos de linha de comando (argc, argv)
  - Manipulação de arquivos com FILE *
  - Leitura de arquivos com fgets
- - leitura de arquivos com getc
- - leitura de arquivos com sscanf
+ - Leitura de caracteres com getc
+ - Processamento de texto
  - Comparação de strings com strcmp
  - Separação de responsabilidades entre arquivos .c e .h
+ - Uso de Makefile para automatizar a compilação
+
 ---
+
 🚀 Próximos Passos
 
-Funcionalidades planejadas para futuras versões:
- - Tratamento mais robusto de erros
+ - Possíveis melhorias futuras:
+ - Tratamento de erros mais robusto
  - Suporte a múltiplos comandos simultâneos
- -  Implementação do comando --help
- - Criação de Makefile
+ - Otimização da leitura de arquivos
+ - Expansão da ferramenta com novos comandos
+
 ---
+
 📝 Observação
-Este projeto faz parte do meu processo de aprendizado em limguagem C, com foco em desenvolvimento de 
-ferramentas simples e organização de código para projetos maiores.
+
+Este projeto faz parte do meu processo de aprendizado em linguagem C, com foco no desenvolvimento de ferramentas simples, uso de linha de comando e organização de código para projetos maiores.
 
 
