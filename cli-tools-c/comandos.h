@@ -12,5 +12,7 @@ void executaLinhas(const char *arquivo);
 void executaPalavras(const char *arquivo);
 void executaCaracteres(const char *arquivo);
 void executaComando(const char *nomeArquivo,const char *comando);
+void executaHelp();
+void erroUso();
 
 #endif
